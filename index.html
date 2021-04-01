@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" type="image/x-icon" href="asset/cat.png" />
+  <title>Animal Project</title>
+
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+<body id="page-top">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <img src="asset/navbar.png">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <form method="get" id="searchform" class="form-inline" action="#collection">
+          <input class="form-control mr-sm-2" type="search" id="cari" placeholder="Search" aria-label="Search">
+          <button class="btn btn-light" type="submit">cari</button> 
+      </form>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">Profil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#collection">Kebun Binatang</a>
+          </li>
+          <li>
+            <a class="nav-link js-scroll-trigger" href="#contact_us">Kontak Saya</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white "style = "background-image : url('asset/abstract.png'); backgroung-color : #ffffff;">
+    <div class="container text-center">
+      <h1>Selamat Datang di Animal.Project</h1>
+      <p class="lead">Selamat datang di website yang akan mengajak anda mengetahui lebih dalam tentang dunia binatang. tidak perlu keluar rumah untuk ini
+        ingin tahu lebih tentang hewan yang ada di dunia, world in your hand.</p>
+    </div>
+  </header>
+  <section id="about">
+    <div class="container">
+      <div class="row"> 
+        <img src="asset/profl.jpg" style="border-radius:150px; width:300px;">
+          <h2 class="text-black mt-0" id="nama"></h2>
+          <h2 class="text-black mt-0" id="nim"></h2>
+          <h2 class="text-black mt-0" id="kelas"></h2>
+          <p class="lead">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="collection" class="bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Koleksi</h2>
+          <p>
+            <a href="#collection" class="btn btn-primary btn-xl js-scroll-trigger" 
+            onClick = "callInputModal()">Tambahkan Hewan</a>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#collection"
+            onClick = "getAnimals('http://uts.if05a.xyz/index.php/animal/q/student_id/17102110','My Animals')">Hewan Saya</a>                 
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#collection" id="allanimal"
+            onClick = "getAnimals('http://uts.if05a.xyz/index.php/animal','All Animals')">Kebun Binatang</a>              
+         </p>             
+        </div>
+      </div>
+    </div>
+    <div class="album py-5 bg-light">
+      <div class="container">
+          <h1 class="jumbotron-heading" id="title-page"></h1>
+          <div class="row animal-items" id="animal-items">
+              
+              <div class="col-md-4 animal-item" style="display: none;" id="animal-item">
+                  <div class="card mb-4 box-shadow">
+                      <img class="card-img-top" id="card-img" src="assets/img/no_image.jpg" alt="Card image cap">
+                      <div class="card-body">
+                          <b class="card-title" id="card-title">Nama Hewan</b><br>
+                          <b class="card-habitat" id="card-habitat">Habitat</b><br>
+                          <small class="text-muted" id="card-name">Nama</small>
+                          <p class="card-text" id="card-description">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                  <button type="button" id="view-detail" class="btn btn-sm btn-outline-secondary">Lihat</button>
+                                   <button type="button" id="edit-detail" class="btn btn-sm btn-outline-primary">Edit</button>
+                                   <button type="button" id="delete-animal" class="btn btn-sm btn-outline-danger">Hapus</button>
+                              </div>
+                              <small class="text-muted" id="card-date">9 mins</small>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </section>
+  <section id="contact_us">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>Hubungi Saya</h2>
+          <img src="asset/icons8-instagram.svg"width:70px; height: 50px;>
+          <style type="text/css">
+          .satu{
+          font-size: 20px;
+          }</style>
+          <p class="satu">mochammad._iqbal</p>
+          <p class="lead"></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Mochammad Iqbal Fatria</p>
+    </div>
+   
+  </footer>
+  
+ <div class="modal fade" id="animalInputModal" tabindex="-1" role="dialog" arialabelledby="quoteInputModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <h5 class="modal-title" id="modal-input-title">Masukkan hewan</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="modal-input-form" enctype="multipart/form-data">
+          <input type="hidden" class="form-control" id="modal-input-form-animal-id" name="animal_id">
+          <input type="hidden" class="form-control" id="modal-input-form-student-id" name="student_id">
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Nama Hewan</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="modal-input-form-title" placeholder="Title.." name="animal_name" required>
+                </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Habitat</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="modal-input-form-habitat" placeholder="habitat" name="habitat" required>
+                </div>
+            </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Deskripsi</label>
+                <div class="col-sm-10">
+                  <textarea class="form-control" id="modal-input-form-description" rows="5" placeholder="Description..." name="description" required></textarea>
+                </div>
+              </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Gambar</label>
+                      <div class="col-sm-10">
+                        <input type="file" name="image" class="form-control-file" id="modal-input-form-image">
+                      </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10">
+                      <img class="card-img-top" id="modal-input-show-img">
+                    </div>
+                 </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" id="modal-input-form-submit" class="btn btn-primary">Simpan</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+              </div>
+          </form>
+        </div>
+     </div>
+  </div>
+
+  <div class="modal fade" id="animalDetailModal" tabindex="-1" role="dialog" arialabelledby="animalDetailLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+          <div class="modal-body">
+            <img class="card-img-top" src="assets/img/no_image.jpg" id="modal-img" alt="Card image cap">
+              <p class="card-text" id="modal-description"></p>
+              <small class="text-muted" id="modal-name">Nama</small>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+  </div>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/scrolling-nav.js"></script>
+  <script>
+    function callModal(title,habitat,name,image,description){         
+        $('#animalDetailModal').modal('show');         
+        $( "#modal-title" ).html(title); 
+        $( "#modal-habitat" ).html(habitat);         
+        $( "#modal-name" ).html(name);         
+        $( "#modal-description" ).html(description);         
+        $( "#modal-img" ).attr('src',image);    
+        $( "#modal-habitat" ).html(habitat);     
+    }
+    function callInputModal(title,name,habitat,image,description,animal_id){
+        $( '#animalInputModal').modal('show');
+        $( "#modal-input-title").html(title);
+        $( "#modal-input-form-animal-id" ).val(animal_id);
+        $( "#modal-input-form-habitat" ).val(habitat);
+        $( "#modal-input-form-student-id" ).val('17102110');
+        $( "#modal-input-form-title" ).val(name);
+        $( "#modal-input-form-image" ).val('');
+        $( "#modal-input-form-description" ).val(description);
+        $( "#modal-input-show-img" ).attr('src',image);
+    }
+    function addAnimal(){
+        $('#animaladdform').submit(function(e){
+            console.log("A");
+            e.preventDefault();
+            var formData=$(this).serializeArray();
+            if(formData[0].value==""){
+                insertAnimal(this);
+            }else{
+                editAnimal(this);
+            }     
+        }); 
+    }
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+        $('#modal-input-show-img').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+      }
+      function deleteAnimal(animal_id,animal_name){
+        var r = confirm("Delete "+animal_name+"?");
+        if (r == true) {
+        $.ajax({
+        type: 'DELETE',
+        url: "http://uts.if05a.xyz/index.php/animal/q/animal_id/"+animal_id,
+        beforeSend: function( xhr ) {
+        xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+        },
+        error: function(xhr, status, error) {
+        console.log(xhr);
+        }
+        })
+        .done(function( data ) {
+        console.log(data);
+        getAnimals('http://uts.if05a.xyz/index.php/animal/q/student_id/17102110'); 
+        });
+        }
+        } 
+      function updateAnimal(data){         
+                $.ajax({             
+                    type: 'POST',             
+                    url: "http://uts.if05a.xyz/index.php/animal/q/edit/1",                     
+                    dataType: "JSON",             
+                    data: new FormData(data),             
+                    processData: false,             
+                    contentType: false,             
+                    beforeSend: function( xhr ){               
+                        xhr.overrideMimeType( "text/plain; charset=x-user-defined" );             
+                    },             
+                    error: function(xhr, status, error) {               
+                        console.log(xhr);             
+                    }           
+                })          
+                .done(function( data ) {             
+                    console.log(data);          
+                    getAnimals('http://uts.if05a.xyz/index.php/animal/q/student_id/17102110');             
+                    $('#animalInputModal').modal('toggle');           
+                });                
+            }
+    function insertAnimal(data){
+        $.ajax({
+            type:'POST',
+            url:"http://uts.if05a.xyz/index.php/animal",
+            dataType:"JSON",
+            data:new FormData(data),
+            processData:false,
+            contentType:false,
+            beforeSend:function(xhr){
+                xhr.overrideMimeType("text/plain;charset=x-user-defined");
+            },
+            error:function(xhr,status,error){
+                console.log(xhr);
+            }
+        })
+        .done(function(data){
+            console.log(data);
+            getAnimals('http://uts.if05a.xyz/index.php/animal/q/student_id/17102110', 'my_animals');
+            $('#animalInputModal').modal('toggle');
+        })
+    }
+    function readURL(input){
+        if(input.files&&input.files[0]){
+            var reader=new FileReader();
+            reader.onload=function(e){
+                $('#modal-input-show-img').attr('src',e.target.result);
+            }
+                reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function getAnimals(url,title){
+    var item = $( "#animal-item" );
+    $("#title-page").html(title);
+    $(".animal-item").remove();
+    item.appendTo("#animal-items");
+    $.ajax({
+        type: 'GET',
+        url: url,        
+        beforeSend: function( xhr ) {
+        xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+        },
+        error: function(xhr, status, error) {
+        console.log(xhr);
+        }
+    })
+    .done(function( data ) {
+        myData = JSON.parse(data);
+        for (i = 0; i < myData['animal'].length; i++) {
+        var item = $( "#animal-item" ).clone();
+        item.find('#card-description').html(myData['animal'][i].description);
+        item.removeAttr( "style" );
+        item.find('#card-img').attr('src', myData['animal'][i].image);
+        item.find('#card-title').html(myData['animal'][i].animal_name);
+        item.find('#card-habitat').html(myData['animal'][i].habitat);
+        item.find('#card-name').html(myData['animal'][i].student_name + " (" + myData['animal'][i].class_name + ")");
+        item.find('#card-date').html(myData['animal'][i].updated);
+        item.find('#view-detail').attr("onClick","callModal(\""+myData['animal'][i].animal_name+"\",\"" +myData['animal'][i].habitat+"\",\""
+                            +myData['animal'][i].student_name+ " (" + myData['animal'][i].class_name + ")\",\""
+                            +myData['animal'][i].image+"\",\""+myData['animal'][i].description.replace('"','\\"').replace(/(\r\n|\n|\r)/gm,'<br>')+"\")")  
+        item.find('#edit-detail').attr("onClick","callInputModal(\"Edit Animal\",\""
+                    +myData['animal'][i].animal_name+"\",\""
+                    +myData['animal'][i].habitat+"\",\""+myData['animal'][i].image+"\",\""
+                    +myData['animal'][i].description.replace('"','\\"').replace(/(\r\n|\n|\r)/gm,'<br>')+"\",\""
+                    +myData['animal'][i].animal_id+"\")");
+        item.find('#delete-animal').attr("onClick","deleteAnimal("+myData['animal'][i].animal_id+",'"+myData['animal'][i].animal_name+"')"); 
+        if("17102110"!=myData['animal'][i].student_id){
+                    item.find('#edit-detail').attr("style","display:none;");
+                    item.find('#delete-animal').attr("style","display: none;"); 
+                }
+        item.appendTo("#animal-items");
+        }
+    });           
+}
+function getProfile(){
+    var url ="http://uts.if05a.xyz/index.php/student/q/student_id/17102110"
+    $.ajax({
+        type : 'GET',
+        url : url,
+        beforeSend: function(xhr){
+            xhr.overrideMimeType("text/plain; charset=x-user-defined");
+        },
+        error : function(xhr,status,error){
+            console.log(xhr);
+        }
+    })
+    .done(function(data){
+        myData = JSON.parse(data);
+        $('#nama').text(myData['student'][0]['name']);
+        $('#nim').text(myData['student'][0]['student_id']);
+        $('#kelas').text(myData['student'][0]['class_name']);
+    })
+}
+function search(){
+    $("#searchform").submit(function(){
+        x = $("#cari").val();
+        var url = "http://uts.if05a.xyz/index.php/animal/q/search/"+x;
+        var item = $( "#animal-item" );
+        $("#title-page").html("Search Result");
+        $( ".animal-item" ).remove();
+        item.appendTo("#animal-items");
+        $.ajax({
+            type: 'GET',
+            url: url,        
+            beforeSend: function( xhr ) {
+            xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+            },
+            error: function(xhr, status, error) {
+            console.log(xhr);
+            }
+        })
+        .done(function( data ) {
+            myData = JSON.parse(data);
+            for (i = 0; i < myData['animal'].length; i++) {
+            var item = $( "#animal-item" ).clone();
+            item.find('#card-description').html(myData['animal'][i].description);
+            item.removeAttr( "style" );
+            item.find('#card-img').attr('src', myData['animal'][i].image);
+            item.find('#card-title').html(myData['animal'][i].animal_name);
+            item.find('#card-habitat').html(myData['animal'][i].habitat);
+            item.find('#card-name').html(myData['animal'][i].student_name + " (" + myData['animal'][i].class_name + ")");
+            item.find('#card-date').html(myData['animal'][i].updated);
+            item.find('#view-detail').attr("onClick","callModal(\""+myData['animal'][i].animal_name+"\",\"" +myData['animal'][i].habitat+"\",\""
+                        +myData['animal'][i].student_name+ " (" + myData['animal'][i].class_name + ")\",\""
+                        +myData['animal'][i].image+"\",\""+myData['animal'][i].description.replace('"','\\"').replace(/(\r\n|\n|\r)/gm,'<br>')+"\")"); 
+            item.find('#delete-animal').attr("onClick","deleteAnimal("+myData['animal'][i].animal_id+",'"+myData['animal'][i].animal_name+"')"); 
+            console.log("onClick","deleteAnimal("+myData['animal'][i].animal_id+",'"+myData['animal'][i].animal_name+"')");
+            if("17102110"!=myData['animal'][i].student_id){
+                    item.find('#edit-detail').attr("style","display:none;");
+                    item.find('#delete-animal').attr("style","display: none;"); 
+                }
+            item.appendTo("#animal-items");
+            }
+        });
+        });
+        }
+        $(document).ready(function(){
+        $('#modal-input-form').submit(function (e) {
+        e.preventDefault();
+        var formData = $(this).serializeArray();
+        if(formData[0].value==""){
+        insertAnimal(this);
+        }
+        else{
+        updateAnimal(this);
+        }
+        });
+        $("#modal-input-form-image").change(function() {
+        readURL(this);
+        });
+                getAnimals('http://uts.if05a.xyz/index.php/animal/q/student_id/17102110','My Animals');
+                getProfile();  
+                search();     
+        })
+    </script>
+  </body>
+</html>
